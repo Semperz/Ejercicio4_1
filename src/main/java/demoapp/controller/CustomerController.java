@@ -30,4 +30,9 @@ public class CustomerController {
         customerService.saveCustomer(customer);
         return "redirect:/customers";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
 }
