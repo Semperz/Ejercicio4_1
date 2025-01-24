@@ -1,7 +1,6 @@
 package demoapp.service;
 
 import demoapp.model.entity.Image;
-import demoapp.model.repository.CustomerRepository;
 import demoapp.model.repository.ImageRepository;
 import org.springframework.stereotype.Service;
 
