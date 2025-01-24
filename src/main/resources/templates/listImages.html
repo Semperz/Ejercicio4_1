@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Votar Imágenes</title>
+        <style>
+            .image-container {
+                display: flex; /* Alinea los elementos horizontalmente */
+                gap: 20px; /* Espacio entre cada imagen */
+                justify-content: center; /* Centra las imágenes horizontalmente */
+                align-items: flex-start; /* Alinea las imágenes al inicio verticalmente */
+            }
+
+            .image-item {
+                text-align: center; /* Centra los textos debajo de las imágenes */
+            }
+
+            .image-item img {
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+</head>
+<body>
+<h1>Votar Imágenes</h1>
+<div class="image-container">
+    <div class="image-item" th:each="image : ${images}">
+        <form th:action="@{/vote}" method="post" style="margin: 0;">
+            <input type="hidden" th:value="${image.id}" name="id"/>
+            <button type="submit" style="border: none; background: none; padding: 0;">
+                <img th:src="${image.url}" th:alt="'Imagen ' + ${image.id}"/>
+            </button>
+        </form>
+        <p>Votos: <span th:text="${image.votes}"></span></p>
+    </div>
+</div>
+</body>
+</html>
